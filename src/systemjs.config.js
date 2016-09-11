@@ -2,8 +2,13 @@
 
 var packages = {
 	'.': {
-		'defaultExtension': 'ts',
-		'main': 'main'
+		defaultExtension: 'ts',
+		main: 'main',
+		meta: {
+			'*.json': {
+				loader: 'json'
+			}
+		}
 	}
 };
 
@@ -25,20 +30,11 @@ angularPackages.forEach(function (item) {
 System.config({
 	defaultJSExtensions: true,
 	transpiler: 'typescript',
-	typescriptOptions: {
-		'target': 'es5',
-		'module': 'system',
-		'moduleResolution': 'node',
-		'sourceMap': true,
-		'emitDecoratorMetadata': true,
-		'experimentalDecorators': true,
-		'removeComments': false,
-		'noImplicitAny': false
-	},
 	packages: packages,
 	map: {
 		'@angular': '../node_modules/@angular',
 		'core-js': '../node_modules/core-js',
+		'json': '../node_modules/systemjs-plugin-json/json.js',
 		'reflect-metadata': '../node_modules/reflect-metadata',
 		'rxjs': '../node_modules/rxjs',
 		'typescript': '../node_modules/typescript/lib/typescript.js',
@@ -46,3 +42,6 @@ System.config({
 	}
 });
 
+System.import('./tsconfig.json').then((tsconfig) => {
+	System.typescriptOptions = tsconfig['compilerOptions'];
+});
