@@ -1,0 +1,12 @@
+{
+	"browser": "google chrome",
+	"codeSync": false,
+	"files": [
+		"./src/**/*.{html,css,ts,json}",
+		"./dist/*.{html,css.js}"
+	],
+	"logLevel": "warn",
+	"port": 8888,
+	"startPath": "/src/index.html",
+	"server": {}
+}
