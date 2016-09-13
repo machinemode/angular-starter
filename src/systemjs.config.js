@@ -5,6 +5,9 @@ var packages = {
 		defaultExtension: 'ts',
 		main: 'main',
 		meta: {
+			'*.css': {
+				loader: 'text'
+			},
 			'*.html': {
 				loader: 'text'
 			},

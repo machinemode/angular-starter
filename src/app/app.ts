@@ -1,14 +1,17 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, ViewEncapsulation } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 
 import template from './app.html';
+import stylesheet from './app.css';
 
 import { SomeService } from './some-service';
 
 @Component({
 	selector: 'app',
-	template: template
+	template: template,
+	styles: [stylesheet],
+	encapsulation: ViewEncapsulation.Native
 })
 export class App {
 	private title: string = 'App thingy';
