@@ -2,11 +2,13 @@ import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 
+import template from './app.html';
+
 import { SomeService } from './some-service';
 
 @Component({
 	selector: 'app',
-	templateUrl: 'app/app.html'
+	template: template
 })
 export class App {
 	private title: string = 'App thingy';

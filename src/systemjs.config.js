@@ -5,6 +5,9 @@ var packages = {
 		defaultExtension: 'ts',
 		main: 'main',
 		meta: {
+			'*.html': {
+				loader: 'text'
+			},
 			'*.json': {
 				loader: 'json'
 			}
@@ -37,6 +40,7 @@ System.config({
 		'json': '../node_modules/systemjs-plugin-json/json.js',
 		'reflect-metadata': '../node_modules/reflect-metadata',
 		'rxjs': '../node_modules/rxjs',
+		'text': '../node_modules/systemjs-plugin-text/text.js',
 		'typescript': '../node_modules/typescript/lib/typescript.js',
 		'zone.js': '../node_modules/zone.js'
 	}
