@@ -6,7 +6,7 @@ import { SomeService } from './some-service';
 
 @Component({
 	selector: 'app',
-	template: "<h1>{{title}}</h1><button (click)='doSomething()'>blah</button>"
+	templateUrl: 'app/app.html'
 })
 export class App {
 	private title: string = 'App thingy';
