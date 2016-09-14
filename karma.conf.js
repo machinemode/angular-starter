@@ -6,7 +6,9 @@ module.exports = function (config) {
 		frameworks: ['jasmine'],
 		files: [
 			{ pattern: 'node_modules/systemjs/dist/system.js', included: true, watched: false },
-			{ pattern: 'src/systemjs.config.js', included: true, watched: false },
+			{ pattern: 'systemjs.config.js', included: true, watched: false },
+			{ pattern: 'tsconfig.json', included: false, watched: false },
+
 			{ pattern: 'karma-bootstrap.js', included: true, watched: false },
 			{ pattern: 'karma-shim.js', included: false, watched: false },
 
@@ -18,8 +20,10 @@ module.exports = function (config) {
 			{ pattern: 'src/**/*', included: false, watched: true }
 		],
 		proxies: {
-			'/node_modules': '/base/node_modules',
+			'/systemjs.config.js': '/base/systemjs.config.js',
+			'/tsconfig.json': '/base/tsconfig.json',
 			'/karma-shim.js': '/base/karma-shim.js',
+			'/node_modules': '/base/node_modules',
 			'/src': '/base/src'
 		},
 		colors: true,

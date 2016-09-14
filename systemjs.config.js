@@ -1,6 +1,13 @@
 'use strict';
 
 var packages = {
+	'': {
+		meta: {
+			'*.json': {
+				loader: 'json'
+			}
+		}
+	},
 	'src': {
 		defaultExtension: 'ts',
 		main: 'main',
@@ -10,9 +17,6 @@ var packages = {
 			},
 			'*.html': {
 				loader: 'text'
-			},
-			'*.json': {
-				loader: 'json'
 			}
 		}
 	}
@@ -47,12 +51,13 @@ angularPackages.forEach(function (item) {
 });
 
 System.config({
+	baseURL: '/',
 	defaultJSExtensions: true,
 	transpiler: 'typescript',
 	packages: packages,
 	map: map
 });
 
-System.import('src/tsconfig.json').then((tsconfig) => {
+System.import('/tsconfig.json').then((tsconfig) => {
 	System.typescriptOptions = tsconfig['compilerOptions'];
 });
