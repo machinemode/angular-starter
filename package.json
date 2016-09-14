@@ -3,7 +3,8 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"start": "lite-server"
+		"start": "lite-server",
+		"test": "karma start"
 	},
 	"dependencies": {
 		"@angular/common": "2.0.0-rc.7",
@@ -23,6 +24,10 @@
 		"zone.js": "0.6.21"
 	},
 	"devDependencies": {
+		"jasmine-core": "^2.4.1",
+		"karma": "^1.2.0",
+		"karma-chrome-launcher": "^1.0.1",
+		"karma-jasmine": "^1.0.2",
 		"lite-server": "^2.2.0",
 		"typescript": "^2.0.0"
 	}

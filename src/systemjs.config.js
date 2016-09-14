@@ -1,7 +1,7 @@
 'use strict';
 
 var packages = {
-	'.': {
+	'src': {
 		defaultExtension: 'ts',
 		main: 'main',
 		meta: {
@@ -18,7 +18,18 @@ var packages = {
 	}
 };
 
-var angularPackages = [
+var map = {
+	'@angular': 'node_modules/@angular',
+	'core-js': 'node_modules/core-js',
+	'json': 'node_modules/systemjs-plugin-json/json.js',
+	'reflect-metadata': 'node_modules/reflect-metadata',
+	'rxjs': 'node_modules/rxjs',
+	'text': 'node_modules/systemjs-plugin-text/text.js',
+	'typescript': 'node_modules/typescript/lib/typescript.js',
+	'zone.js': 'node_modules/zone.js'
+};
+
+let angularPackages = [
 	'@angular/common',
 	'@angular/compiler',
     '@angular/core',
@@ -30,25 +41,18 @@ var angularPackages = [
 ];
 
 angularPackages.forEach(function (item) {
-	packages[item] = { main: 'bundles/' + item.split('/')[1] + '.umd.js' };
+	let filename = item.split('/')[1];
+	packages[item] = { main: `bundles/${filename}.umd.js` };
+	map[`${item}/testing`] = `node_modules/${item}/bundles/${filename}-testing.umd.js`;
 });
 
 System.config({
 	defaultJSExtensions: true,
 	transpiler: 'typescript',
 	packages: packages,
-	map: {
-		'@angular': '../node_modules/@angular',
-		'core-js': '../node_modules/core-js',
-		'json': '../node_modules/systemjs-plugin-json/json.js',
-		'reflect-metadata': '../node_modules/reflect-metadata',
-		'rxjs': '../node_modules/rxjs',
-		'text': '../node_modules/systemjs-plugin-text/text.js',
-		'typescript': '../node_modules/typescript/lib/typescript.js',
-		'zone.js': '../node_modules/zone.js'
-	}
+	map: map
 });
 
-System.import('./tsconfig.json').then((tsconfig) => {
+System.import('src/tsconfig.json').then((tsconfig) => {
 	System.typescriptOptions = tsconfig['compilerOptions'];
 });
