@@ -11,7 +11,7 @@ import { SomeService } from './some-service';
 	selector: 'app',
 	template: template,
 	styles: [stylesheet],
-	encapsulation: ViewEncapsulation.Native
+	encapsulation: ViewEncapsulation.Emulated
 })
 export class App {
 	private title: string = 'App thingy';
