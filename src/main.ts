@@ -14,4 +14,6 @@ function load() {
 
 if (document.readyState === 'complete') {
     load();
-} // or listen for some event
+} else {
+    document.addEventListener('DOMContentLoaded', ()  => load());
+}

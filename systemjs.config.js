@@ -58,6 +58,8 @@ System.config({
 	map: map
 });
 
-System.import('/tsconfig.json').then(function (tsconfig) {
-	System.typescriptOptions = tsconfig['compilerOptions'];
-});
+if (System.constructor.name != 'SystemJSNodeLoader') {
+	System.import('/tsconfig.json').then(function (tsconfig) {
+		System.typescriptOptions = tsconfig['compilerOptions'];
+	});
+}
