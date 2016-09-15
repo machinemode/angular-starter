@@ -33,7 +33,7 @@ var map = {
 	'zone.js': 'node_modules/zone.js'
 };
 
-let angularPackages = [
+var angularPackages = [
 	'@angular/common',
 	'@angular/compiler',
     '@angular/core',
@@ -45,9 +45,9 @@ let angularPackages = [
 ];
 
 angularPackages.forEach(function (item) {
-	let filename = item.split('/')[1];
-	packages[item] = { main: `bundles/${filename}.umd.js` };
-	map[`${item}/testing`] = `node_modules/${item}/bundles/${filename}-testing.umd.js`;
+	var filename = item.split('/')[1];
+	packages[item] = { main: 'bundles/' + filename + '.umd.js' };
+	map[item + '/testing'] = 'node_modules/' + item + '/bundles/' + filename + '-testing.umd.js';
 });
 
 System.config({
@@ -58,6 +58,6 @@ System.config({
 	map: map
 });
 
-System.import('/tsconfig.json').then((tsconfig) => {
+System.import('/tsconfig.json').then(function (tsconfig) {
 	System.typescriptOptions = tsconfig['compilerOptions'];
 });
