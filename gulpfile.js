@@ -21,7 +21,7 @@ gulp.task('watch', ['sass'], () => {
 	gulp.watch(`${__dirname}/src/**/*.scss`, ['sass']);
 });
 
-gulp.task('bundle', ['sass'], () => {
+gulp.task('system-bundle', ['sass'], () => {
 	let src = `${__dirname}/src/main.ts`;
 	let dest = `${__dirname}/dist/app.js`;
 	let builder = new Builder(`${__dirname}`, `${__dirname}/systemjs.config.js`);
@@ -31,4 +31,9 @@ gulp.task('bundle', ['sass'], () => {
 	});
 
 	return builder.buildStatic(src, dest, {	minify: true });
+});
+
+gulp.task('aot-bundle', () => {
+	// bundle with system (no sfx)?
+	// ngc -p tsconfig-aot.json
 });
