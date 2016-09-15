@@ -28,7 +28,7 @@ module.exports = function (config) {
 		},
 		colors: true,
 		logLevel: config.LOG_INFO,
-		browsers: ['Chrome'],
+		browsers: ['Chrome', 'PhantomJS'],
 		singleRun: true,
 		concurrency: Infinity
 	});
