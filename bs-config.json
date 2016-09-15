@@ -3,7 +3,7 @@
 	"codeSync": false,
 	"files": [
 		"./src/**/*.{html,css,ts,json}",
-		"./dist/*.{html,css.js}"
+		"./dist/*.{html,css,js}"
 	],
 	"logLevel": "warn",
 	"port": 8888,

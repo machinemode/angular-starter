@@ -1,8 +1,10 @@
+$width: 10em;
+
 h1 {
 	color: green;
 }
 
 button {
-	width: 10em;
+	width: $width;
 	font-size: 1em;
 }

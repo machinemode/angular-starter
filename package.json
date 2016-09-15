@@ -4,7 +4,8 @@
 	"private": true,
 	"scripts": {
 		"postinstall": "typings install",
-		"start": "lite-server",
+		"sass": "gulp sass",
+		"start": "concurrently \"gulp watch\" \"lite-server\"",
 		"test": "karma start"
 	},
 	"dependencies": {
@@ -25,6 +26,9 @@
 		"zone.js": "0.6.21"
 	},
 	"devDependencies": {
+		"concurrently": "^2.2.0",
+		"gulp": "^3.9.1",
+		"gulp-sass": "^2.3.2",
 		"jasmine-core": "^2.4.1",
 		"karma": "^1.2.0",
 		"karma-chrome-launcher": "^2.0.0",
