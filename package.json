@@ -3,12 +3,12 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"aot": "gulp aot-bundle",
+		"aot": "echo '(╯°□°)╯︵ ┻━┻'",
 		"system-bundle": "gulp system-bundle",
 		"postinstall": "typings install",
 		"sass": "gulp sass",
-		"start": "concurrently \"gulp watch\" \"lite-server\"",
-		"test": "karma start"
+		"start": "concurrently 'gulp watch' 'lite-server'",
+		"test": "gulp sass && karma start"
 	},
 	"dependencies": {
 		"@angular/common": "2.0.0",
