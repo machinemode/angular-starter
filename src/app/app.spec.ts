@@ -21,17 +21,18 @@ describe('App Component', () => {
 	beforeEach(() => {
 		TestBed.configureTestingModule({
 			declarations: [App],
-			providers: [ { provide: SomeService, useValue: MockService }]
+			providers: [{ provide: SomeService, useValue: MockService }]
 		});
-
-		fixture = TestBed.createComponent(App);
-		component = fixture.componentInstance;
 	});
 
 	it('should have a title', () => {
-		fixture.detectChanges();
-		titleElement = fixture.debugElement.query(By.css('h1'));
+		TestBed.compileComponents().then(() => {
+			fixture = TestBed.createComponent(App);
+			component = fixture.componentInstance;
 
-		expect(titleElement.nativeElement.textContent).toContain('App thingy');
+			fixture.detectChanges();
+			titleElement = fixture.debugElement.query(By.css('h1'));
+			expect(titleElement.nativeElement.textContent).toContain('App thingy');
+		});
 	});
 });

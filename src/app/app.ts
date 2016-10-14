@@ -2,19 +2,18 @@ import { Component, NgModule, ViewEncapsulation } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 
-import template from './app.html';
-import stylesheet from './app.css';
-
 import { SomeService } from './some-service';
 
+
 @Component({
+	moduleId: __moduleName, // aot needs module.id instead
 	selector: 'app',
-	template: template,
-	styles: [stylesheet],
+	templateUrl: 'app.html',
+	styleUrls: ['app.css'],
 	encapsulation: ViewEncapsulation.Emulated
 })
 export class App {
-	private title: string = 'App thingy';
+	title: string = 'App thingy';
 
 	constructor(private service: SomeService) {
 

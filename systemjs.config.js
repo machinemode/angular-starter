@@ -10,15 +10,7 @@ var packages = {
 	},
 	'src': {
 		defaultExtension: 'ts',
-		main: 'main',
-		meta: {
-			'*.css': {
-				loader: 'text'
-			},
-			'*.html': {
-				loader: 'text'
-			}
-		}
+		main: 'main'
 	}
 };
 

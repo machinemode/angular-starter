@@ -6,5 +6,8 @@ node_modules
 typings
 
 src/**/*.css
+src/**/*.js
+src/**/*.js.map
 dist/**/*.js
 dist/**/*.js.map
+build
