@@ -1,2 +1,32 @@
-<h1>{{title}}</h1>
-<button (click)='doSomething()'>blah</button>
+<div id="app">
+	<md-sidenav-layout>
+
+		<md-sidenav #start mode="push">
+			Left
+		</md-sidenav>
+
+		<md-toolbar color="primary">
+			<button md-icon-button (click)="start.open()">
+                <md-icon>menu</md-icon>
+            </button>
+            <span>{{title}}</span>
+
+            <span class="push-right"></span>
+			<button md-icon-button [md-menu-trigger-for]="menu">
+                <md-icon>more_vert</md-icon>
+            </button>
+            <md-menu x-position="before" #menu="mdMenu">
+                <button md-menu-item>Option 1</button>
+                <button md-menu-item>Sign Out</button>
+            </md-menu>
+		</md-toolbar>
+        <div id="content">
+            Content
+        </div>
+
+		<md-sidenav #end align="end" mode="side">
+			Right
+		</md-sidenav>
+
+	</md-sidenav-layout>
+</div>

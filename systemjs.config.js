@@ -11,12 +11,17 @@ var packages = {
 	'src': {
 		defaultExtension: 'ts',
 		main: 'main'
+	},
+	'@angular/material': {
+		'defaultExtension': 'js',
+		'main': 'material.umd.js'
 	}
 };
 
 var map = {
 	'@angular': 'node_modules/@angular',
 	'core-js': 'node_modules/core-js',
+	'hammerjs': 'node_modules/hammerjs/hammer.js',
 	'json': 'node_modules/systemjs-plugin-json/json.js',
 	'reflect-metadata': 'node_modules/reflect-metadata',
 	'rxjs': 'node_modules/rxjs',

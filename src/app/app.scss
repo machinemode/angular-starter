@@ -1,10 +1,30 @@
-$width: 10em;
+@import 'theme';
 
-h1 {
-	color: green;
-}
+$toolbar-height: 64px;
+$content-height: calc(100% - #{$toolbar-height});
 
-button {
-	width: $width;
-	font-size: 1em;
+#app {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+
+	md-sidenav-layout {
+		height: 100%;
+		width: 100%;
+
+		#content {
+			margin: 0 auto;
+			overflow: auto;
+			height: $content-height;
+    		width: 100%;
+		}
+	}
+
+	.push-right {
+		flex: 1 1 auto;
+	}
 }

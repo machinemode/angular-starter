@@ -1,6 +1,7 @@
 import { Component, NgModule, ViewEncapsulation } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
+import { MaterialModule } from '@angular/material';
 
 import { SomeService } from './some-service';
 
@@ -31,7 +32,8 @@ export class App {
 @NgModule({
 	imports: [
 		BrowserModule,
-		HttpModule
+		HttpModule,
+		MaterialModule.forRoot()
 	],
 	declarations: [
 		App

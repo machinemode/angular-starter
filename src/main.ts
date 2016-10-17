@@ -1,5 +1,6 @@
 import 'core-js/client/core.min';
 import 'zone.js/dist/zone.min';
+import 'hammerjs';
 
 import { enableProdMode } from '@angular/core';
 
