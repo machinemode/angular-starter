@@ -4,14 +4,14 @@ import 'hammerjs';
 
 import { enableProdMode } from '@angular/core';
 
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { platformBrowser }    from '@angular/platform-browser';
 
-import { AppModule } from './app/app-module';
+import { AppModuleNgFactory } from '../build/src/app/app-module.ngfactory';
 
 
 function load() {
 	enableProdMode();
-	platformBrowserDynamic().bootstrapModule(AppModule);
+	platformBrowser().bootstrapModuleFactory(AppModuleNgFactory);
 }
 
 if (document.readyState === 'complete') {

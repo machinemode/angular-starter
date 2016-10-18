@@ -1,13 +1,6 @@
 'use strict';
 
 var packages = {
-	'': {
-		meta: {
-			'*.json': {
-				loader: 'json'
-			}
-		}
-	},
 	'src': {
 		defaultExtension: 'ts',
 		main: 'main'
@@ -15,6 +8,17 @@ var packages = {
 	'@angular/material': {
 		'defaultExtension': 'js',
 		'main': 'material.umd.js'
+	},
+	'ts': {
+		main: 'plugin.js'
+	},
+	'typescript': {
+		main: 'lib/typescript.js',
+		meta: {
+			'lib/typescript.js': {
+				'exports': 'ts'
+			}
+		}
 	}
 };
 
@@ -22,11 +26,10 @@ var map = {
 	'@angular': 'node_modules/@angular',
 	'core-js': 'node_modules/core-js',
 	'hammerjs': 'node_modules/hammerjs/hammer.js',
-	'json': 'node_modules/systemjs-plugin-json/json.js',
 	'reflect-metadata': 'node_modules/reflect-metadata',
 	'rxjs': 'node_modules/rxjs',
-	'text': 'node_modules/systemjs-plugin-text/text.js',
-	'typescript': 'node_modules/typescript/lib/typescript.js',
+	'ts': 'node_modules/plugin-typescript/lib/',
+	'typescript': 'node_modules/typescript/',
 	'zone.js': 'node_modules/zone.js'
 };
 
@@ -50,13 +53,15 @@ angularPackages.forEach(function (item) {
 System.config({
 	baseURL: '/',
 	defaultJSExtensions: true,
-	transpiler: 'typescript',
+	transpiler: 'ts',
+	typescriptOptions: {
+		tsconfig: true
+    },
+	meta: {
+      'typescript': {
+        "exports": "ts"
+      }
+    },
 	packages: packages,
 	map: map
 });
-
-if (System.constructor.name != 'SystemJSNodeLoader') {
-	System.import('/tsconfig.json').then(function (tsconfig) {
-		System.typescriptOptions = tsconfig['compilerOptions'];
-	});
-}

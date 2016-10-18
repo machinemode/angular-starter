@@ -4,7 +4,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import uglify from 'rollup-plugin-uglify'
 
 export default {
-  entry: 'src/main.js',
+  entry: 'src/main-aot.js',
   dest: 'dist/app.js',
   sourceMap: false,
   format: 'iife',

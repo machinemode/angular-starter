@@ -1,13 +1,9 @@
-import { Component, NgModule, ViewEncapsulation } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpModule } from '@angular/http';
-import { MaterialModule } from '@angular/material';
-
+import { Component, ViewEncapsulation } from '@angular/core';
 import { SomeService } from './some-service';
 
 
 @Component({
-	moduleId: __moduleName, // aot needs module.id instead
+	moduleId: module.id,
 	selector: 'app',
 	templateUrl: 'app.html',
 	styleUrls: ['app.css'],
@@ -27,24 +23,4 @@ export class App {
 				error: error => console.log(error)
 			});
 	}
-}
-
-@NgModule({
-	imports: [
-		BrowserModule,
-		HttpModule,
-		MaterialModule.forRoot()
-	],
-	declarations: [
-		App
-	],
-	providers: [
-		SomeService
-	],
-	bootstrap: [
-		App
-	]
-})
-export class AppModule {
-
 }
