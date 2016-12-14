@@ -20,7 +20,7 @@ let buildStyles = (src, dest) => {
 	});
 };
 
-gulp.task('sass', ['removeMaterialCssFiles'], () => {
+gulp.task('sass', [], () => {
 	return buildStyles(`${__dirname}/src/sass/styles.scss`, `${__dirname}/dist`)
 		.then(() => buildStyles(`${__dirname}/src/app/**/*.scss`, `${__dirname}/src/app`))
 		.catch(console.error);
@@ -30,14 +30,3 @@ gulp.task('watch', ['sass'], () => {
 	gulp.watch(`${__dirname}/src/**/*.scss`, ['sass']);
 });
 
-/*
-	With material alpha.9, we need to rm these css files
-	https://github.com/angular/material2/issues/1348
-*/
-gulp.task('removeMaterialCssFiles', () => {
-	return new Promise((resolve, reject) => {
-		fs.unlink('./node_modules/@angular/material/core/overlay/overlay.css', (error, result) => {
-			resolve(result);
-		});
-	});
-});
