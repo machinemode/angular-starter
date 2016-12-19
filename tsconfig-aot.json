@@ -6,17 +6,21 @@
 		"sourceMap": true,
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
+		"lib": ["es2015", "dom"],
 		"removeComments": true,
 		"noImplicitAny": false,
-		"suppressImplicitAnyIndexErrors": true
+		"suppressImplicitAnyIndexErrors": true,
+		"typeRoots": [
+      		"node_modules/@types/"
+    	]
 	},
 	"files": [
 		"src/app/app-module.ts",
-		"src/main-aot.ts",
-		"typings/index.d.ts"
+		"src/main-aot.ts"
 	],
 	"angularCompilerOptions": {
 		"genDir": "build",
-		"skipMetadataEmit": true
+		"skipMetadataEmit": true,
+		"debug": true
 	}
 }

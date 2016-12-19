@@ -1,4 +1,5 @@
 'use strict';
+let del = require('del');
 let fs = require('fs');
 let gulp = require('gulp');
 let sass = require('gulp-sass');
@@ -30,3 +31,10 @@ gulp.task('watch', ['sass'], () => {
 	gulp.watch(`${__dirname}/src/**/*.scss`, ['sass']);
 });
 
+gulp.task('clean', [], () => {
+	return del([
+		'build',
+		`${__dirname}/dist/*.{css,js}`,
+		`${__dirname}/src/**/*.{css,js,js.map}`
+	]);
+});
