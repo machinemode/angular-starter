@@ -1,5 +1,4 @@
 {
-	"browser": "google chrome",
 	"codeSync": false,
 	"files": [
 		"./src/**/*.{html,css,ts,json}",
