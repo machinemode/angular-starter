@@ -1,8 +1,6 @@
-# angular2-example
+# angular2-starter
 
 ```bash
-git clone git@github.com:machinemode/angular2-example.git
-cd angular2-example
 npm install
 npm run build
 npm start
